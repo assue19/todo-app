@@ -1,4 +1,30 @@
-console.log("app loaded")
-const div = document.querySelector(".container")
+const form = document.querySelector("form")
+const taskInput = document.querySelector("input[name=taskName]")
+const dateInput = document.querySelector("input[name=taskDate]")
+const ul = document.querySelector("ul")
 
-console.log(div)
+form.onsubmit =function(e){
+	e.preventDefault()
+
+	let taskTitle =  taskInput.value
+	let taskDate = dateInput.value
+
+	console.log(taskTitle)
+
+	const li = document.createElement("li")
+	li.textContent = taskTitle
+	li.classList.add("list-group-item")
+	li.classList.add("d-flex")
+	li.classList.add("justify-content-between")
+	li.classList.add("align-item-center")
+
+const span = document.createElement("span")
+span.textContent = taskDate
+span.classList.add("badge")
+span.classList.add("badge-primary")
+span.classList.add("badge-pill")
+
+li.appendChild(span)
+
+	ul.appendChild(li)
+}
